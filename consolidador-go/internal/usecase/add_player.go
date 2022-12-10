@@ -17,6 +17,12 @@ type AddPlayerUseCase struct {
 	Uow uow.UowInterface
 }
 
+func NewAddPlayerUseCase(uow uow.UowInterface) *AddPlayerUseCase {
+	return &AddPlayerUseCase{
+		Uow: uow,
+	}
+}
+
 func (a *AddPlayerUseCase) Execute(ctx context.Context, input AddPlayerInput) error {
 	playerRepository := a.GetPlayerRepository(ctx)
 
